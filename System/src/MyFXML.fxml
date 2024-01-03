@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyFxmlController">
+   <children>
+      <TabPane layoutY="25.0" prefHeight="375.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Home">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="355.0" prefWidth="600.0" style="-fx-background-color: white;">
+                     <children>
+                        <TabPane prefHeight="346.0" prefWidth="602.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Welcome">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="594.0">
+                                       <children>
+                                          <Text layoutX="66.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" VIA BOARD GAME ASSOCIATION" wrappingWidth="469.24391174316406">
+                                             <font>
+                                                <Font name="Felix Titling" size="29.0" />
+                                             </font>
+                                             <fill>
+                                                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                                   <stops>
+                                                      <Stop>
+                                                         <color>
+                                                            <Color red="1.0" />
+                                                         </color>
+                                                      </Stop>
+                                                      <Stop offset="1.0">
+                                                         <color>
+                                                            <Color />
+                                                         </color>
+                                                      </Stop>
+                                                   </stops>
+                                                </RadialGradient>
+                                             </fill>
+                                          </Text>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="226.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@VIAlogo.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Manage Students">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane prefHeight="348.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Add Student">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="69.0" layoutY="43.0" text="Name:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <Label layoutX="70.0" layoutY="120.0" text="VIA ID:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <Label layoutX="71.0" layoutY="194.0" text="Status:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <TextField fx:id="studentNameText" layoutX="249.0" layoutY="39.0" prefHeight="26.0" prefWidth="156.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <TextField fx:id="ViaIdText" layoutX="249.0" layoutY="116.0" prefHeight="26.0" prefWidth="155.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <CheckBox fx:id="statusMemberBox" layoutX="249.0" layoutY="194.0" mnemonicParsing="false" onAction="#handleMemberBox" text="Member" />
+                                          <Button fx:id="addStudentButton" layoutX="493.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Add">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                          <CheckBox fx:id="statusGuestBox" layoutX="344.0" layoutY="194.0" mnemonicParsing="false" onAction="#handleGuestBox" text="Guest" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="View Student List">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="studentTable" layoutX="14.0" layoutY="41.0" prefHeight="200.0" prefWidth="342.0">
+                                             <columns>
+                                                <TableColumn fx:id="nameStudentColumn" prefWidth="159.2000150680542" text="Name" />
+                                                <TableColumn fx:id="ViaIDStudentColumn" prefWidth="86.39994812011719" text="VIA ID" />
+                                                <TableColumn fx:id="statusStudentColumn" prefWidth="95.199951171875" text="Status" />
+                                             </columns>
+                                          </TableView>
+                                          <ListView fx:id="listStudentView" layoutX="371.0" layoutY="68.0" prefHeight="174.0" prefWidth="221.0" />
+                                          <HBox layoutX="402.0" layoutY="33.0" prefHeight="18.0" prefWidth="190.0" />
+                                          <Button fx:id="removeStudentButton" layoutX="40.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Remove Student">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                          <Label alignment="CENTER" layoutX="370.0" layoutY="42.0" prefHeight="26.0" prefWidth="222.0" style="-fx-background-color: gainsboro;" text="Student Information">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="editStudentButton" layoutX="185.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Edit Name">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                          <Button fx:id="statusMemberButton" layoutX="300.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Set Status Member">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                          <Button fx:id="statusGuestButton" layoutX="453.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Set Status Guest">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                       </children></AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Manage Games">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane prefHeight="346.0" prefWidth="601.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Add Game">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="69.0" layoutY="40.0" text="Name">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <TextField fx:id="nameGame" layoutX="263.0" layoutY="36.0" />
+                                          <Label layoutX="69.0" layoutY="93.0" text="Number of players">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <Label layoutX="72.0" layoutY="150.0" text="Type">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <Label layoutX="69.0" layoutY="203.0" text="Owner's VIA ID">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <TextField fx:id="numberGame" layoutX="263.0" layoutY="89.0" />
+                                          <TextField fx:id="typeGame" layoutX="263.0" layoutY="146.0" />
+                                          <TextField fx:id="ownerIdGame" layoutX="263.0" layoutY="199.0" />
+                                          <Button fx:id="addGameButton" layoutX="484.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Add">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Edit Catalogue">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="editCatalagueTable" layoutX="21.0" layoutY="31.0" prefHeight="200.0" prefWidth="391.0">
+                                            <columns>
+                                              <TableColumn fx:id="nameCatalogueColumn" prefWidth="116.00000381469727" text="Name" />
+                                              <TableColumn fx:id="playersCatalogueColumn" prefWidth="56.0" text="Players" />
+                                                <TableColumn fx:id="typeCatalogueColumn" prefWidth="94.40000915527344" text="Type" />
+                                                <TableColumn fx:id="ownerCatalogueColumn" prefWidth="63.20001220703125" text="Owner" />
+                                                <TableColumn fx:id="rankCatalogueColumn" prefWidth="68.0" text="Rank" />
+                                            </columns>
+                                          </TableView>
+                                          <ListView fx:id="gameInfoViewTable" layoutX="424.0" layoutY="56.0" prefHeight="175.0" prefWidth="162.0" />
+                                          <HBox layoutX="424.0" layoutY="31.0" prefHeight="26.0" prefWidth="162.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: gainsboro;" text="Game Information">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="removeGameButton" layoutX="47.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Remove">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                          <Button fx:id="addRateGameButton" layoutX="146.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Add Rate">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                          <Button fx:id="removeRateGaneButton" layoutX="252.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Remove all Rates">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Add Wish Game">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="71.0" layoutY="62.0" text="Name">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <Label layoutX="71.0" layoutY="122.0" text="Number of players">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <Label layoutX="71.0" layoutY="187.0" text="Type">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <TextField fx:id="nameWishGameText" layoutX="240.0" layoutY="58.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <TextField fx:id="numberOfPlayersWishGameText" layoutX="240.0" layoutY="118.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <TextField fx:id="typeWishGameText" layoutX="240.0" layoutY="183.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <Button fx:id="addWishGameButton" layoutX="495.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Add">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Edit Wish Game List">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="editWishGameTable" layoutX="59.0" layoutY="39.0" prefHeight="200.0" prefWidth="483.0">
+                                            <columns>
+                                              <TableColumn fx:id="nameWishGameColumn" prefWidth="144.79999160766602" text="Name" />
+                                              <TableColumn fx:id="playersWishGameColumn" prefWidth="81.60002136230469" text="Players" />
+                                                <TableColumn fx:id="typeWishGameColumn" prefWidth="140.0" text="Type" />
+                                                <TableColumn fx:id="voteWishGameColumn" prefWidth="115.19999999999999" text="Votes" />
+                                            </columns>
+                                          </TableView>
+                                          <Button fx:id="removeWishGameButton" layoutX="94.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Remove">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                          <Button fx:id="addVoteWishGameButton" layoutX="267.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Add Vote">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                          <Button fx:id="removeVoteWishGameButton" layoutX="420.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Remove all Votes">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Manage Borrows and Reservations">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane prefHeight="345.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Add Borrow">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="83.0" layoutY="63.0" text="Student VIA ID">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="82.0" layoutY="128.0" text="Game Name">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="83.0" layoutY="194.0" text="Return Date">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="borrowStudentViaIdText" layoutX="274.0" layoutY="59.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <TextField fx:id="borrowGameNameText" layoutX="274.0" layoutY="124.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <DatePicker fx:id="borrowDatePicker" layoutX="274.0" layoutY="190.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <Button fx:id="addBorrowButton" layoutX="487.0" layoutY="256.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Add">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Add Reservation">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="81.0" layoutY="55.0" text="Student VIA ID">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="82.0" layoutY="106.0" text="Game Name">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="87.0" layoutY="158.0" text="Borrow Date">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="88.0" layoutY="214.0" text="Return Date">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="reservationStudentViaIdText" layoutX="274.0" layoutY="51.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <TextField fx:id="reservationGameNameText" layoutX="274.0" layoutY="102.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <DatePicker fx:id="reservationBorrowDatePicker" layoutX="275.0" layoutY="154.0" prefHeight="26.0" prefWidth="152.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <DatePicker fx:id="reservationReturnDatePicker" layoutX="274.0" layoutY="210.0" prefHeight="26.0" prefWidth="154.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <Button fx:id="addReservationButton" layoutX="492.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Add">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Active Borrows">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="activeBorrowsTable" layoutX="19.0" layoutY="32.0" prefHeight="200.0" prefWidth="562.0">
+                                            <columns>
+                                              <TableColumn fx:id="activeBorrowsGameNameColumn" prefWidth="194.40002822875977" text="Game Name" />
+                                              <TableColumn fx:id="activeBorrowsViaIdColumn" prefWidth="176.7999725341797" text="VIA ID" />
+                                                <TableColumn fx:id="activeBorrowsDateInterval" prefWidth="191.199951171875" text="Date Interval" />
+                                            </columns>
+                                          </TableView>
+                                          <Button fx:id="activeBorrowsReturnButton" layoutX="460.0" layoutY="256.0" mnemonicParsing="false" onAction="#handleActions" prefHeight="26.0" prefWidth="93.0" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Return Game" wrapText="true">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Reservations">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="reservationTable" layoutX="29.0" layoutY="34.0" prefHeight="200.0" prefWidth="537.0">
+                                            <columns>
+                                              <TableColumn fx:id="reservationGameNameColumn" prefWidth="174.40002822875977" text="Game Name" />
+                                              <TableColumn fx:id="reservationViaIdColumn" prefWidth="179.99998474121094" text="VIA ID" />
+                                                <TableColumn fx:id="reservationDateColumn" prefWidth="183.20001220703125" text="Date Interval" />
+                                                <TableColumn prefWidth="179.99998474121094" text="C2" />
+                                            </columns>
+                                          </TableView>
+                                          <Button fx:id="removeReservationButton" layoutX="104.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Remove Reservation">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="activateReservationButton" layoutX="371.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Activate Reservation" wrapText="true">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Unclosed Borrows">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="unclosedBorrowsTable" layoutX="26.0" layoutY="35.0" prefHeight="200.0" prefWidth="547.0">
+                                            <columns>
+                                              <TableColumn fx:id="unclosedBorrowsGameNameColumn" prefWidth="185.60004043579102" text="Game Name" />
+                                              <TableColumn fx:id="unclosedBorrowsViaIdColumn" prefWidth="181.59996032714844" text="VIA ID" />
+                                                <TableColumn fx:id="unclosedBorrowsDateColumn" prefWidth="181.5999755859375" text="Date Interval" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Manage Events">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane prefHeight="346.0" prefWidth="601.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Add Event">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="78.0" layoutY="58.0" text="Name">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <Label layoutX="78.0" layoutY="125.0" text="Place">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <Label layoutX="78.0" layoutY="182.0" text="Type">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <Label layoutX="78.0" layoutY="235.0" text="Date">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font></Label>
+                                          <DatePicker fx:id="eventDatePicker" layoutX="234.0" layoutY="230.0" prefHeight="26.0" prefWidth="151.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <TextField fx:id="nameEventText" layoutX="235.0" layoutY="54.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <TextField fx:id="placeEventText" layoutX="235.0" layoutY="121.0" style="-fx-border-color: black; -fx-border-width: 0.3;" />
+                                          <CheckBox fx:id="typeRegularEventBox" layoutX="235.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleRegularTypeBox" text="Regular" />
+                                          <CheckBox fx:id="typeSpecialEventBox" layoutX="325.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleSpecialTypeBox" text="Special" />
+                                          <Button fx:id="addEventButton" layoutX="476.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Add">
+                                             <font>
+                                                <Font name="Ebrima" size="12.0" />
+                                             </font></Button>
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Future Event List">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="futureEventTable" layoutX="39.0" layoutY="25.0" prefHeight="200.0" prefWidth="346.0">
+                                            <columns>
+                                              <TableColumn fx:id="futureEventNameColumn" prefWidth="116.00000381469727" text="Name" />
+                                              <TableColumn fx:id="futureEventPlaceColumn" prefWidth="92.79998779296875" text="Place" />
+                                                <TableColumn fx:id="futureEventDateColumn" prefWidth="136.00010681152344" text="Date" />
+                                            </columns>
+                                          </TableView>
+                                          <Button fx:id="removeFutureEventButton" layoutX="75.0" layoutY="256.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Remove" />
+                                          <Button fx:id="addAttendanceButton" layoutX="261.0" layoutY="256.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Add Attendance" />
+                                          <Button fx:id="removeAttedanceButton" layoutX="435.0" layoutY="256.0" mnemonicParsing="false" onAction="#handleActions" style="-fx-border-color: black; -fx-border-width: 0.3;" text="Remove Attendance" />
+                                          <ListView fx:id="futureEventView" layoutX="397.0" layoutY="50.0" prefHeight="175.0" prefWidth="192.0" />
+                                          <HBox layoutX="398.0" layoutY="25.0" prefHeight="26.0" prefWidth="192.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="42.0" prefWidth="208.0" style="-fx-background-color: gainsboro;" text="Event Information">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab fx:id="previousEventView" text="Previous Event List">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="previousEventTable" layoutX="43.0" layoutY="29.0" prefHeight="200.0" prefWidth="309.0">
+                                            <columns>
+                                              <TableColumn fx:id="previousEventNameColumn" prefWidth="121.60004043579102" text="Name" />
+                                              <TableColumn fx:id="previousEventPlaceColumn" prefWidth="99.19993591308594" text="Place" />
+                                                <TableColumn fx:id="previousEventDateColumn" prefWidth="86.4000244140625" text="Date" />
+                                            </columns>
+                                          </TableView>
+                                          <ListView fx:id="petEventView" layoutX="377.0" layoutY="54.0" prefHeight="175.0" prefWidth="200.0" />
+                                          <HBox layoutX="377.0" layoutY="28.0" prefHeight="26.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="29.0" prefWidth="200.0" style="-fx-background-color: gainsboro;" text="Event Information">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children></AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <HBox layoutX="-1.0" layoutY="-1.0" prefHeight="25.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="606.0" style="-fx-background-color: gray;" text="VIA BOARD GAMES ASSOCIATION">
+               <font>
+                  <Font name="Webdings" size="15.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
